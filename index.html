@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyundai 2026 Brochures</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold tracking-tight">2026 Hyundai Brochures</h1>
+      <p class="text-slate-300 mt-2">Quick links for showroom, texts, and follow-up.</p>
+    </header>
+
+    <div id="grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+    <footer class="mt-10 text-sm text-slate-400">
+      Hosted from GitHub. Files open as PDFs in a new tab.
+    </footer>
+  </div>
+
+  <script>
+    // Change BASE if you prefer GitHub Pages links instead of raw.
+    const BASE = "https://raw.githubusercontent.com/BabakRosewater/brochure/main/";
+
+    const items = [
+      { name: "Elantra", file: "2026Elantra.pdf" },
+      { name: "Kona", file: "2026Kona.pdf" },
+      { name: "Palisade + Hybrid", file: "2026PalisadeandHY.pdf" },
+      { name: "Santa Fe + Hybrid", file: "2026SFandHybrid.pdf" },
+      { name: "Santa Cruz", file: "2026SantaCruz.pdf" },
+      { name: "Sonata + Hybrid", file: "2026SonataandHybrid.pdf" },
+      { name: "Tucson + Hybrid", file: "2026TucsonandHybrid.pdf" },
+      { name: "Venue", file: "2026Venue.pdf" },
+    ];
+
+    const grid = document.getElementById("grid");
+    grid.innerHTML = items.map(x => {
+      const href = BASE + encodeURIComponent(x.file);
+      return `
+        <a href="${href}" target="_blank" rel="noopener"
+           class="block rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:bg-slate-900/70 transition">
+          <div class="text-lg font-semibold">${x.name}</div>
+          <div class="text-sm text-slate-400 mt-1">${x.file}</div>
+          <div class="mt-4 inline-flex items-center gap-2 text-sm text-sky-300">
+            Open PDF <span aria-hidden="true">↗</span>
+          </div>
+        </a>
+      `;
+    }).join("");
+  </script>
+</body>
+</html>
